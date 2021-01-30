@@ -1,0 +1,10 @@
+.jumbotron {
+    min-width: 585px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px 10px 10px;
+    background-attachment: fixed;
+    background-color: rgb(24, 24, 184);
+    color:rgb(247, 231, 231);
+    text-align: center;
