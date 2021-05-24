@@ -122,6 +122,15 @@ let reSearch = searchForm.nodeValue.trim();
 currentWeather(reSearch);
 });
 
+$(searchButton).on("clcik" , function (event){
+    event.preventDefault();
+    let userSearch = searchForm.nodeValue.trim();
+    console.log(userSearch);
+    currentWeather(userSearch);
+});
+
+renderLastSearch();
+
 
 
 
