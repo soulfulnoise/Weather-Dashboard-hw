@@ -1,3 +1,5 @@
+const { $CombinedState } = require("redux");
+
 //varibles
 let searchForm = document.getElementById("city-search");
 let searchButton = document.getElementById("search-button");
@@ -43,9 +45,11 @@ fetch(queryURL)
     </div>
     </div>`;
    
-
-
+    $(todaysWeatherInfo).html(todaysWeatherHtml);
 })
-}
+.catch(error => {
+    console.log(error);
+});
+};
 
 
