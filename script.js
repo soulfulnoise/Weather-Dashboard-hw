@@ -1,7 +1,14 @@
 //varibles
 let searchForm = document.getElementById("city-search");
 let searchButton = document.getElementById("search-button");
-
+let currentWeatherInfo = document.getElementById("current-weather-info");
+let cityName = document.getElementById("city");
+let cityTemp = document.getElementById("temperature");
+let cityHumidity = document.getElementById("humidity");
+let cityWind = document.getElementById("wind");
+let cityUV = document.getElementById("uv-index");
+let LastSearchField = document.getElementById("last-search-field");
+let forecastCards = document.getElementById("forecast-cards");
 
 
 let ApiKey ="f942c0f8f979e4f33b7d3cd78a52416d"
@@ -57,6 +64,11 @@ function forecastWether(name) {
 fetch(queryURL)
     .then((response) => {
         return response.json()
+    })
+    .then(result => {
+        console.log(result);
+        let forecastWeatherHtml = `<div></div>`;
+        
     })
 }
 
