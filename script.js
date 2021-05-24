@@ -96,6 +96,17 @@ fetch(queryURL)
             $(forecastCards).html(forecastWeatherHtml);
         }
     })
+    .catch(error => {
+        console.log(error);
+    });
+};
+
+function saveInput(city) {
+    localStorage.setItem(localStorage.length, city);
+};
+
+function renderLastSearch() {
+    $(LastSearchField).empty();
 }
 
 
