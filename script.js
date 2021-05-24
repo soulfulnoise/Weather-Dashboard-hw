@@ -20,6 +20,31 @@ fetch(queryURL)
     saveInput(city);
     let icon ="https://openweathermap.org/img/w/" = result.weather[0].icon + "png";
     renderLastSearch();
+
+    let currentTimeExt = result.dt;
+    let currentTime = moment.unix(currentTimeExt);
+    console.log(currentTime);
+
+    let todaysWeatherHtml =`
+    <div>
+    <div class="col" id="city-name">
+    <span id="place" class="align-middle"> ${result.name} ${currentTime.format("(MM/DD/YY HH:mm:ss)")}
+    </span>
+    <img id="weather-icon" src="${icon}" alt="weather-icon">
+    </div>
+    <div class="col">
+    <p id="temperature">Tempoerature: ${result.main.temp} F</p>
+    </div>
+    <div class="col">
+    <p id="humidity">Humidity: ${result.main.humidity} %</p>
+    </div>
+    <div class="col">
+    <p id="wind">Wind: ${result.main.speen} mph</p>
+    </div>
+    </div>`;
+   
+
+
 })
 }
 
