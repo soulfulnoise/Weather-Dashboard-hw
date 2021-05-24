@@ -107,6 +107,21 @@ function saveInput(city) {
 
 function renderLastSearch() {
     $(LastSearchField).empty();
+
+    for(let i =0; i < localStorage.length; i++) {
+        let lastCity = localStorage.getItem(i);
+        let cityButton = `<a href="#" class="list-group-item list-group-item-action">${pastCity}>/a>`;
+        $(pastSearchesField).prepend(cityButton);
+    }
 }
+
+$(pastSearchesField).on("click", function (event){
+event.preventDefault();
+$(searchForm).val(event.target.textContent)
+let reSearch = searchForm.nodeValue.trim();
+currentWeather(reSearch);
+});
+
+
 
 
