@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 //varibles
 let searchForm = document.getElementById("city-search");
 let searchButton = document.getElementById("search-button");
@@ -68,7 +70,31 @@ fetch(queryURL)
     .then(result => {
         console.log(result);
         let forecastWeatherHtml = `<div></div>`;
-        
+
+        for (let i =0; i < result.list.length; i++) {
+            let day = reult.list[i]
+            let icon = "https://openweathermap.org/img/w" = day.weather[0].icon + ".png";
+            let currentTimeUnix = day.dt;
+            console.log(icon)
+            let currentTime = moment.unix(currentTimeUnix);
+            console.log(currentTime.format("HH:mm:ss"));
+            if (currentTime.format("HH:mm:ss") === "12:00:00")  {
+
+
+                forecastWeatherHtml +=`
+                <div class="card text-red bg-success mb-3" style="max-width: 18 rem;">
+                <div class="card-header">${currentTime.format("(MM/DD/YY)")}</div>
+                <div class="card-body">
+                     <ul class= "list-unstyled">
+                        <li class="card-text"><img src="${icon}"></li>
+                         <li class="card-text">Temperature: ${day.main.temp} F</li>
+                         <li class="card-text">Humidity: ${day.main.humidity} %</li>
+                    </ul>
+                 </div>
+                </div>`
+            }
+            $(forecastCards).html(forecastWeatherHtml);
+        }
     })
 }
 
